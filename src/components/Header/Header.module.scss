@@ -1,0 +1,120 @@
+.sticky-wrapper {
+   height: 70px;
+   font-family: 'Marmelad', sans-serif;
+   .nav-section {
+      padding: 0;
+      text-align: center;
+      background: none repeat scroll 0 0 var(--white);
+      height: 70px;
+      .nav-logo {
+         height: 100%;
+         align-items: center;
+         display: flex;
+         padding: 5px 0;
+         position: relative;
+         float: left;
+         h1 {
+            font-size: 25px;
+            color: var(--primary);
+            .main-color {
+               margin: 5px 8px;
+            }
+         }
+      }
+   }
+}
+.navbar {
+   display: flex;
+   float: right;
+   li {
+      display: inline-block;
+      a {
+         padding: 0 20px;
+         display: block;
+         line-height: 70px;
+         font-size: 12pt;
+         text-align: center;
+         color: var(--text-black);
+         transition: all 0.3s;
+         &:hover {
+            color: var(--primary);
+         }
+      }
+   }
+   button.nav-mobile-btn {
+      display: none;
+   }
+}
+.nav-mobile {
+   position: fixed;
+   top: 0;
+   right: 0;
+   z-index: 100;
+   width: 300px;
+   height: 100%;
+   background-color: #f7f8fa;
+   padding: 15px;
+   overflow: auto;
+   border-left: 5px solid rgba(142, 174, 186, 0.3);
+   transition: all 0.5s;
+   svg {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 28px;
+      cursor: pointer;
+      width: 30px;
+      height: 30px;
+      line-height: 40px;
+      text-align: center;
+      background-color: transparent;
+      transition: all 0.5s;
+      border-radius: 4px;
+      color: var(--text-black);
+   }
+   h2 {
+      text-align: center;
+      font-size: 26pt;
+      margin: 10px 0 25px;
+      color: var(--primary);
+   }
+   ul {
+      li {
+         margin-bottom: 20px;
+         padding-left: 10px;
+         a {
+            color: var(--text-black);
+            &:hover {
+               color: var(--primary);
+            }
+         }
+      }
+   }
+}
+
+// Mobile
+@media (max-width: 767px) {
+   .nav-section {
+      height: 59px !important;
+   }
+   .navbar {
+      .nav {
+         display: none;
+      }
+   }
+   button.nav-mobile-btn {
+      display: block !important;
+      font-size: 29px;
+      color: var(--white);
+      width: 40px;
+      padding: 5px 0;
+      margin: 10px 0;
+      line-height: 1;
+      text-align: center;
+      border-radius: 4px;
+      transition: all 0.3s;
+      background-color: var(--primary);
+      outline: none;
+      border: none;
+   }
+}

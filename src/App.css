@@ -1,10 +1,13 @@
 @import '~normalize.css/normalize.css';
+
 @import url('https://fonts.googleapis.com/css2?family=Marmelad&family=Oooh+Baby&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
 :root {
-   --main-color: #f0f0f0;
-   --secondary-color: #333;
-   --accent-color: #f00;
+   --white: #fff;
+   --black: #000;
+   --primary: #747ba9;
+   --icon: #df4758;
+   --text-black: #73777b;
 
    --font-primary: 'Open Sans', sans-serif;
    --font-title: 'Marmelad', cursive;
@@ -15,7 +18,36 @@ body {
    font-size: 16px;
    line-height: 1.2;
 }
+h1,
+h2,
+h3,
+h4 {
+   font-family: var(--font-title);
+   margin: 0.5rem;
+   line-height: 1.2;
+   font-weight: 500;
+}
 
-div {
-   font-size: 30px;
+h1 {
+   font-size: 56px;
+}
+h2 {
+   font-size: 48px;
+}
+h3 {
+   font-size: 40px;
+}
+h4 {
+   font-size: 28px;
+}
+
+a {
+   text-decoration: none;
+   color: var(--black);
+}
+
+ul {
+   list-style: none;
+   padding: 0;
+   margin: 0;
 }
