@@ -1,43 +1,32 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
 import style from './Hero.module.scss';
+import ZoomSlider from '../../ZomeSlider/ZomeSlider';
 const cx = classNames.bind(style);
 function Hero() {
+   const [currentSlide, setCurrentSlide] = useState(0);
+
+   useEffect(() => {
+      const timer = setInterval(() => {
+         setCurrentSlide((prevSlide) =>
+            // Nếu đây là slide cuối cùng, quay lại slide đầu tiên, ngược lại tăng chỉ số slide
+            prevSlide === 2 ? 0 : prevSlide + 1,
+         );
+      }, 5000); // 5000ms = 5 giây
+
+      // Dọn dẹp bộ đếm thời gian khi component bị unmount
+      return () => clearInterval(timer);
+   }, []);
+
+   const imageSources = [
+      'https://cdn.biihappy.com/ziiweb/default/template/644000ba4f8e0c7ddf09c709/a33b08a813ee02e7a4b7d72ce05d9e93.jpg',
+      'https://cdn.biihappy.com/ziiweb/default/template/644000ba4f8e0c7ddf09c709/1f6f6347c9eec78781d536c34c177bb8.jpg',
+      'https://cdn.biihappy.com/ziiweb/default/template/644000ba4f8e0c7ddf09c709/b0ccc21579cf9df6a113314b039ec33e.jpg',
+   ];
+
    return (
       <section id="hero" className={cx('hero')}>
-         <div className={cx('zs-slideshow')}>
-            <div className={cx('zs-slides')}>
-               <div
-                  className={cx('zs-slide', 'zs-slide-0', 'active')}
-                  style={{
-                     backgroundImage:
-                        'url("https://cdn.biihappy.com/ziiweb/default/template/644000ba4f8e0c7ddf09c709/a33b08a813ee02e7a4b7d72ce05d9e93.jpg")',
-                     transition: 'transform 10000ms ease-out, opacity 1000ms',
-                     opacity: 1,
-                     transform: 'scale(1, 1)',
-                     zIndex: 1,
-                  }}
-               />
-               <div
-                  className={cx('zs-slide', 'zs-slide-1', 'active')}
-                  style={{
-                     backgroundImage:
-                        'url("https://cdn.biihappy.com/ziiweb/default/template/644000ba4f8e0c7ddf09c709/1f6f6347c9eec78781d536c34c177bb8.jpg")',
-                     transition: 'transform 10000ms ease-out, opacity 1000ms',
-                     opacity: 1,
-                     transform: 'scale(1, 1)',
-                     zIndex: 2,
-                  }}
-               />
-               <div
-                  className={cx('zs-slide', 'zs-slide-2')}
-                  style={{
-                     backgroundImage:
-                        'url("https://cdn.biihappy.com/ziiweb/default/template/644000ba4f8e0c7ddf09c709/b0ccc21579cf9df6a113314b039ec33e.jpg")',
-                  }}
-               />
-            </div>
-         </div>
+         <ZoomSlider src={imageSources} />
          <div className="container" style={{ zIndex: 2, marginTop: '101.07px' }}>
             <div className="row">
                <div className="col-sm-12">
@@ -74,7 +63,7 @@ function Hero() {
                         data-animation-direction="fade"
                         data-animation-delay={1000}
                      >
-                        04 Tháng 4 2024
+                        20 Tháng 10 2024
                      </div>
                      <div
                         data-animation-direction="fade"

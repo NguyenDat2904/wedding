@@ -1,0 +1,64 @@
+.zs-container {
+   position: relative;
+   overflow: hidden;
+}
+
+.zs-slideshow,
+.zs-slides {
+   position: fixed;
+   max-height: 100vh;
+   z-index: -2;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   overflow: hidden;
+   display: block;
+   padding: 0;
+}
+
+.zs-slide {
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   background-size: cover;
+   background-position: center;
+   transition: transform 0.8s ease-out, opacity 0.8s;
+}
+
+.zs-bullets {
+   position: absolute;
+   bottom: 10px;
+   left: 50%;
+   transform: translateX(-50%);
+   display: flex;
+}
+
+.zs-bullet {
+   width: 10px;
+   height: 10px;
+   background-color: white;
+   border-radius: 50%;
+   margin: 0 5px;
+   cursor: pointer;
+   opacity: 0.5;
+}
+
+.zs-bullet.active {
+   opacity: 1;
+}
+
+.zs-container.overlay-plain .zs-slideshow::before {
+   content: '';
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background: rgba(0, 0, 0, 0.3);
+   z-index: 1;
+}
+
+.zs-container.overlay-dots .zs-bullets {
+   z-index: 2;
+}

@@ -66,6 +66,9 @@
    }
    .zs-slide.active {
       visibility: visible;
+      transition: transform 10000ms ease-out, opacity 1000ms;
+      opacity: 1;
+      transform: scale(1, 1);
    }
 }
 .hero-wrapper {
@@ -78,7 +81,7 @@
       position: absolute;
       top: 50%;
       left: 0;
-      z-index: -1;
+      z-index: 1;
       background-position: center center;
       background-repeat: no-repeat;
       background-size: contain;
@@ -94,7 +97,7 @@
       height: 503px;
       position: absolute;
       top: 50%;
-      z-index: -1;
+      z-index: 1;
       background-position: center center;
       background-size: contain;
       background-repeat: no-repeat;
@@ -108,6 +111,7 @@
       text-transform: uppercase;
       margin-bottom: 15px;
       font-family: 'Open Sans', sans-serif;
+      cursor: default;
    }
    .hero-title {
       position: relative;
@@ -115,6 +119,7 @@
       margin-bottom: 40px;
       line-height: 1;
       font-size: 65pt;
+      cursor: default;
       small {
          font-size: 36pt;
       }
@@ -210,5 +215,71 @@
       right: var(--vertical-offset, 0);
       bottom: var(--horizontal-offset, 0);
       z-index: 0;
+   }
+}
+.btn:hover .h-lines {
+   transform: scaleX(0);
+}
+.btn:hover .v-lines {
+   transform: scaleY(0);
+}
+
+@media (max-width: 1199px) {
+   .hero-wrapper h1.hero-title {
+      margin-bottom: 28px;
+   }
+   .hero-title small {
+      font-size: 28pt !important;
+   }
+}
+
+@media (max-width: 991px) {
+   .hero-wrapper h2 {
+      font-size: 16pt;
+   }
+   .hero-wrapper::before {
+      left: -45px;
+   }
+   .hero-wrapper::after {
+      right: -45px;
+   }
+   .hero-wrapper .hero-subtitle {
+      font-size: 16pt;
+   }
+   .hero-title small {
+      font-size: 24pt !important;
+   }
+}
+
+@media (max-width: 767px) {
+   .hero-wrapper .hero-subtitle {
+      font-size: 15pt;
+   }
+   .hero-wrapper h1.hero-title:after {
+      bottom: -22px;
+   }
+   .hero-wrapper h2 {
+      font-size: 15pt;
+   }
+   .hero-wrapper .hero-title {
+      font-size: 32pt;
+   }
+   .hero-wrapper::after,
+   .hero-wrapper::before {
+      content: '';
+      width: 219px;
+      height: 395px;
+   }
+}
+
+@media (max-width: 480px) {
+   .hero-wrapper::before {
+      left: -100px !important;
+   }
+   .hero-wrapper::after {
+      right: -100px;
+   }
+   .hero-title small {
+      font-size: 16pt !important;
    }
 }
