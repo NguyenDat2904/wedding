@@ -57,6 +57,8 @@
    overflow: auto;
    border-left: 5px solid rgba(142, 174, 186, 0.3);
    transition: all 0.5s;
+   transform: translateX(100%);
+   display: none;
    svg {
       position: absolute;
       top: 10px;
@@ -70,7 +72,7 @@
       background-color: transparent;
       transition: all 0.5s;
       border-radius: 4px;
-      color: var(--text-black);
+      color: var(--primary);
    }
    h2 {
       text-align: center;
@@ -91,9 +93,14 @@
       }
    }
 }
-
+.nav-mobile.open {
+   transform: translateX(0);
+}
 // Mobile
 @media (max-width: 767px) {
+   .nav-mobile {
+      display: block;
+   }
    .nav-section {
       height: 59px !important;
    }

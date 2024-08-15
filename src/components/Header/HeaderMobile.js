@@ -2,14 +2,13 @@ import React from 'react';
 import classNames from 'classnames/bind';
 import style from './Header.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
-import { faXmark } from '@fortawesome/free-solid-svg-icons/faXmark';
+import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 const cx = classNames.bind(style);
 
-function HeaderMobile() {
+function HeaderMobile({ isOpen, onClose }) {
    return (
-      <nav className={cx('nav-mobile')}>
-         <FontAwesomeIcon icon={faXmark} />
+      <nav className={cx('nav-mobile', isOpen && 'open')}>
+         <FontAwesomeIcon icon={faCircleXmark} onClick={() => onClose(false)} />
          <h2>Menu</h2>
          <ul>
             <li>

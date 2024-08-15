@@ -9,9 +9,11 @@ import HeaderMobile from './HeaderMobile';
 const cx = classNames.bind(style);
 
 function Header() {
+   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+
    return (
       <div>
-         <HeaderMobile />
+         <HeaderMobile isOpen={isMobileMenuOpen} onClose={setIsMobileMenuOpen} />
          <header id="header">
             <div className="sticky-wrapper">
                <div className={cx('sticky-wrapper')}>
@@ -67,7 +69,10 @@ function Header() {
                                        </a>
                                     </li>
                                  </ul>
-                                 <button className={cx('nav-mobile-btn')}>
+                                 <button
+                                    className={cx('nav-mobile-btn')}
+                                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                                 >
                                     <FontAwesomeIcon icon={faBars} />
                                  </button>
                                  {/* Mobile menu button */}
