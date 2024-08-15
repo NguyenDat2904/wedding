@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
 import style from './Hero.module.scss';
 import ZoomSlider from '../../ZomeSlider/ZomeSlider';
+import { globalData, heroImagesSlider } from '../../data';
 const cx = classNames.bind(style);
 function Hero() {
    const [currentSlide, setCurrentSlide] = useState(0);
@@ -18,15 +19,9 @@ function Hero() {
       return () => clearInterval(timer);
    }, []);
 
-   const imageSources = [
-      'https://cdn.biihappy.com/ziiweb/default/template/644000ba4f8e0c7ddf09c709/a33b08a813ee02e7a4b7d72ce05d9e93.jpg',
-      'https://cdn.biihappy.com/ziiweb/default/template/644000ba4f8e0c7ddf09c709/1f6f6347c9eec78781d536c34c177bb8.jpg',
-      'https://cdn.biihappy.com/ziiweb/default/template/644000ba4f8e0c7ddf09c709/b0ccc21579cf9df6a113314b039ec33e.jpg',
-   ];
-
    return (
       <section id="hero" className={cx('hero')}>
-         <ZoomSlider src={imageSources} />
+         <ZoomSlider src={heroImagesSlider} bullets={false} />
          <div className="container" style={{ zIndex: 2, marginTop: '101.07px' }}>
             <div className="row">
                <div className="col-sm-12">
@@ -40,7 +35,7 @@ function Hero() {
                            data-animation-direction="from-right"
                            data-animation-delay={300}
                         >
-                           Văn Đạt{' '}
+                           {globalData.groomName}{' '}
                         </span>
                         <small
                            className={cx('d-block', 'd-sm-inline', 'visible')}
@@ -55,7 +50,7 @@ function Hero() {
                            data-animation-delay={300}
                         >
                            {' '}
-                           Phương Thảo
+                           {globalData.brideName}
                         </span>
                      </h1>
                      <div
@@ -63,7 +58,7 @@ function Hero() {
                         data-animation-direction="fade"
                         data-animation-delay={1000}
                      >
-                        20 Tháng 10 2024
+                        {globalData.weddingDate}
                      </div>
                      <div
                         data-animation-direction="fade"

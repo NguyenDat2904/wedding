@@ -1,0 +1,138 @@
+.couple {
+   margin-top: -210px;
+   background: linear-gradient(to bottom, #fff, #fff) no-repeat 0 210px;
+   position: relative;
+}
+.about-elems-wrapper {
+   position: relative;
+}
+.element {
+   position: relative;
+   margin-bottom: 40px;
+   .image {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      box-shadow: inset 0 0 0 15px var(--white);
+      transition: all 0.3s;
+      cursor: pointer;
+      img {
+         width: 100%;
+         height: auto;
+         z-index: -1;
+         position: relative;
+         transition: all 0.3s;
+      }
+      &::after {
+         content: '';
+         position: absolute;
+         top: 0;
+         bottom: 0;
+         left: 0;
+         right: 0;
+      }
+      .hover-info {
+         --offset: 10px;
+         --border-size: 1px;
+         position: absolute;
+         width: 100%;
+         height: 100%;
+         top: 0;
+         left: 0;
+         border: 36px solid transparent;
+         background-color: rgba(255, 255, 255, 0.85);
+         text-align: left;
+         z-index: 1;
+         transition: all 0.3s;
+         opacity: 0;
+         .h-lines {
+            border-bottom-color: #747ba9;
+            border-top-color: #747ba9;
+            transform: scaleX(0);
+            opacity: 0.5;
+         }
+         .v-lines {
+            border-right-color: #747ba9;
+            border-left-color: #747ba9;
+            transform: scaleY(0);
+            opacity: 0.5;
+         }
+      }
+   }
+   .content {
+      width: 100%;
+      height: auto;
+      padding: 15px;
+      overflow: auto;
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      top: 50%;
+      transform: translateY(-50%);
+      h3 {
+         margin-bottom: 33px;
+         position: relative;
+         font-size: 30pt;
+         small {
+            display: block;
+            font-size: 12pt;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 300;
+            text-transform: uppercase;
+            margin-top: 6px;
+         }
+      }
+   }
+}
+.h-lines {
+   --vertical-offset: calc(var(--offset) * -1);
+   border-top: var(--border-size) solid currentcolor;
+   border-bottom: var(--border-size) solid currentcolor;
+   top: calc(var(--border-size) * -1);
+   bottom: calc(var(--border-size) * -1);
+   &::before {
+      top: calc(var(--vertical-offset) - var(--border-size));
+      bottom: calc(var(--vertical-offset) - var(--border-size));
+      left: calc(var(--offset) - var(--border-size));
+      right: calc(var(--offset) - var(--border-size));
+   }
+}
+.v-lines {
+   --horizontal-offset: calc(var(--offset) * -1);
+   border-left: var(--border-size) solid currentcolor;
+   border-right: var(--border-size) solid currentcolor;
+   right: calc(var(--border-size) * -1);
+   left: calc(var(--border-size) * -1);
+   &::before {
+      top: calc(var(--offset) - var(--border-size));
+      bottom: calc(var(--offset) - var(--border-size));
+      left: calc(var(--horizontal-offset) - var(--border-size));
+      right: calc(var(--horizontal-offset) - var(--border-size));
+   }
+}
+
+.h-lines,
+.v-lines {
+   position: absolute;
+   top: var(--horizontal-offset, 0);
+   right: var(--vertical-offset, 0);
+   bottom: var(--horizontal-offset, 0);
+   left: var(--vertical-offset, 0);
+   transition: transform 0.8s ease;
+   will-change: transform;
+   z-index: -1;
+   &::before {
+      content: '';
+      position: absolute;
+      border: inherit;
+   }
+}
+.element .image:hover .hover-info {
+   opacity: 1;
+}
+.element .image:hover .hover-info .h-lines {
+   transform: scaleX(1);
+}
+.element .image:hover .hover-info .v-lines {
+   transform: scaleY(1);
+}

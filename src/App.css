@@ -53,6 +53,15 @@ ul {
    padding: 0;
    margin: 0;
 }
+section {
+   padding: 70px 0;
+   z-index: 0;
+}
+img {
+   max-width: 100%;
+   vertical-align: middle;
+   border: 0 none;
+}
 .visible {
    visibility: visible !important;
 }
