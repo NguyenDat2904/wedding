@@ -11,6 +11,8 @@
 
    --font-primary: 'Open Sans', sans-serif;
    --font-title: 'Marmelad', cursive;
+
+   --border-size: 1px;
 }
 
 body {
@@ -23,9 +25,9 @@ h2,
 h3,
 h4 {
    font-family: var(--font-title);
-   margin: 0.5rem;
    line-height: 1.2;
    font-weight: 500;
+   margin: 0;
 }
 
 h1 {
@@ -50,4 +52,10 @@ ul {
    list-style: none;
    padding: 0;
    margin: 0;
+}
+.visible {
+   visibility: visible !important;
+}
+.d-block {
+   display: block;
 }
