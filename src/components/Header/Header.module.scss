@@ -108,8 +108,10 @@ header {
 .nav-mobile.open {
    transform: translateX(0);
 }
-// Mobile
-@media (max-width: 767px) {
+@media (max-width: 1199px) {
+   .navbar-nav {
+      width: auto;
+   }
    .nav-mobile {
       display: block;
    }
@@ -142,4 +144,9 @@ header {
          transform: scale(0.9);
       }
    }
+}
+
+// Mobile
+@media (max-width: 767px) {
+   
 }

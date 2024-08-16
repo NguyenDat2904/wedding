@@ -225,6 +225,9 @@
 }
 
 @media (max-width: 1199px) {
+   .hero-wrapper .hero-title {
+      font-size: 54pt;
+   }
    .hero-wrapper h1.hero-title {
       margin-bottom: 28px;
    }
@@ -234,14 +237,18 @@
 }
 
 @media (max-width: 991px) {
+   .hero-wrapper .hero-title {
+      font-size: 44pt;
+      margin-bottom: 50px;
+   }
    .hero-wrapper h2 {
       font-size: 16pt;
    }
    .hero-wrapper::before {
-      left: -45px;
+      left: -80px;
    }
    .hero-wrapper::after {
-      right: -45px;
+      right: -80px;
    }
    .hero-wrapper .hero-subtitle {
       font-size: 16pt;

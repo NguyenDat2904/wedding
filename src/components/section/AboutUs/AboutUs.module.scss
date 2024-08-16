@@ -73,6 +73,7 @@
          margin-bottom: 33px;
          position: relative;
          font-size: 30pt;
+         color: var(--primary);
          small {
             display: block;
             font-size: 12pt;
@@ -81,6 +82,13 @@
             text-transform: uppercase;
             margin-top: 6px;
          }
+      }
+      p {
+         font-weight: 200;
+      }
+      .button-see {
+         color: var(--primary);
+         text-transform: capitalize;
       }
    }
 }
@@ -130,9 +138,131 @@
 .element .image:hover .hover-info {
    opacity: 1;
 }
+
 .element .image:hover .hover-info .h-lines {
    transform: scaleX(1);
 }
 .element .image:hover .hover-info .v-lines {
    transform: scaleY(1);
+}
+.element .image:hover img {
+   filter: blur(4px) grayscale(80%) brightness(1.4);
+}
+.divider-about-us {
+   position: absolute;
+   bottom: 0;
+   left: 50%;
+   margin-left: -52.5px;
+   color: #8eaeba;
+   background-color: #fff;
+   width: 105px;
+   height: 105px;
+   line-height: 105px;
+   text-align: center;
+   z-index: 2;
+   border-radius: 100%;
+   .icon-heart {
+      width: 75px;
+      height: 75px;
+   }
+}
+.divider-about-us .flip {
+   transition: all 1.5s;
+   opacity: 1;
+}
+.animation-fade {
+   transform: rotateY(180deg);
+}
+
+.about-us-desc {
+   text-align: center;
+   h3 {
+      color: var(--primary);
+      font-weight: 700;
+      margin-bottom: 40px;
+   }
+   p {
+      margin-bottom: 20px;
+      font-weight: 200;
+      line-height: 1.6;
+   }
+   .groom-bride-signature {
+      font-size: 2.3rem;
+      color: #535557;
+      font-family: 'Oooh Baby', cursive;
+   }
+}
+.parent-info-group {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-around;
+   .parent-info {
+      display: flex;
+      text-align: left;
+      .parent-title {
+         margin-right: 3px;
+         color: var(--text-black);
+         line-height: 1.6;
+      }
+      .parent-name {
+         font-weight: 600;
+         text-transform: uppercase;
+         color: var(--text-black);
+         line-height: 1.6;
+      }
+   }
+}
+.sn-icons {
+   position: relative;
+   margin: 0;
+   padding: 0;
+   text-align: center;
+   width: 100%;
+   display: inline-block;
+   line-height: 1;
+   li {
+      display: inline-block;
+      margin: 0;
+      padding: 0;
+      a {
+         display: inline-block;
+         font-size: 19pt;
+         overflow: hidden;
+         padding: 0 5px;
+         margin: 0 1px;
+         text-align: center;
+         background: 0 0 !important;
+         opacity: 0.65;
+         transition: all 0.3s;
+         color: var(--primary);
+         &:hover {
+            opacity: 1;
+         }
+      }
+   }
+}
+
+@media (max-width: 767px) {
+   .couple {
+      margin-top: 0;
+      background: #fff;
+   }
+}
+@media screen and (max-width: 576px) {
+   .parent-infos {
+      font-size: 0.8rem;
+   }
+   
+}
+
+@media (max-width: 480px) {
+   .element .image .hover-info h3 {
+      font-size: 24pt;
+   }
+}
+
+@media (max-width: 450px) {
+   .about-us-desc .groom-bride-signature {
+      font-size: 1.8rem;
+   }
 }

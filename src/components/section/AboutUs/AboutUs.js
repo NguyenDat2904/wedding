@@ -1,9 +1,36 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import classNames from 'classnames/bind';
 import style from './AboutUs.module.scss';
+import { Icon, aboutUsData } from '../../data';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSquareInstagram } from '@fortawesome/free-brands-svg-icons/faSquareInstagram';
+import { faSquareTwitter } from '@fortawesome/free-brands-svg-icons/faSquareTwitter';
+import { faSquareFacebook } from '@fortawesome/free-brands-svg-icons/faSquareFacebook';
 const cx = classNames.bind(style);
 
 function AboutUs() {
+   const iconClass = useRef(null); // Tham chiếu đến phần tử icon
+
+   // Cập nhật class cho phần tử icon
+   const updateIconClass = (shouldAdd) => {
+      if (iconClass.current) {
+         if (shouldAdd) {
+            iconClass.current.classList.add(cx('animation-fade'));
+         } else {
+            iconClass.current.classList.remove(cx('animation-fade'));
+         }
+      }
+   };
+
+   const handleMouseEnterGroom = () => {
+      // Xóa class animation-fade khi hover vào groom
+      updateIconClass(false);
+   };
+
+   const handleMouseEnterBride = () => {
+      // Thêm class animation-fade khi hover vào bride
+      updateIconClass(true);
+   };
    return (
       <section className={cx('couple')}>
          <div className="container">
@@ -13,52 +40,46 @@ function AboutUs() {
                   data-animation-direction="from-left"
                   data-animation-delay={300}
                >
-                  <div className={cx('image')}>
-                     <img
-                        src="https://cdn.biihappy.com/ziiweb/default/website/3b48bc6125ce6d186297a3e90a11085e.jpeg"
-                        alt
-                        width={600}
-                        height={714}
-                     />
+                  <div className={cx('image')} onMouseEnter={handleMouseEnterGroom}>
+                     <img src={aboutUsData.groom.image} alt width={600} height={714} />
                      <div className={cx('hover-info', 'neela-style')}>
                         <span className={cx('h-lines')} />
                         <span className={cx('v-lines')} />
                         <div className={cx('content')}>
                            <h3>
-                              Hoàng Kiến Văn
+                              {aboutUsData.groom.full_name}
                               <small>The Groom</small>
                            </h3>
                            <p>
                               Là bác sĩ nha khoa hiện đang công tác tại một phòng khám nha khoa ở Quận 1 thành phồ Hồ
                               Chí Minh. Là...
                               <a
-                                 className="button-see"
-                                 data-src="https://cdn.biihappy.com/ziiweb/default/website/3b48bc6125ce6d186297a3e90a11085e.jpeg"
-                                 data-content="Là bác sĩ nha khoa hiện đang công tác tại một phòng khám nha khoa ở Quận 1 thành phồ Hồ Chí Minh. Là một người hiền lành và ít nói. Luôn coi trọng tình cảm và yêu thương gia đình. Với anh: “Gia đình là điểm tựa vững chắc nhất và là bến đỗ bình yên không đâu sánh bằng đối với mỗi con người. Đó luôn là nơi tràn ngập tình yêu thương để ta trở về.”"
-                                 data-instagram="https://instagram.com"
-                                 data-twitter="https://twitter.com"
-                                 data-facebook="https://facebook.com"
-                                 data-name="Hoàng Kiến Văn"
+                                 className={cx('button-see')}
+                                 data-src={aboutUsData.groom.image}
+                                 data-content={aboutUsData.groom.description}
+                                 data-twitter={aboutUsData.groom.social.twitter}
+                                 data-facebook={aboutUsData.groom.social.facebook}
+                                 data-name={aboutUsData.groom.full_name}
                                  style={{ fontSize: 14, cursor: 'pointer' }}
                               >
                                  Xem thêm
                                  <i className="bi bi-arrow-down-short" />
                               </a>
                            </p>
-                           <ul className="sn-icons">
+                           <ul className={cx('sn-icons')}>
                               <li>
-                                 <a href="https://instagram.com">
-                                    <i className="fab fa-instagram-square" />
+                                 <a href={aboutUsData.groom.social.instagram}>
+                                    <FontAwesomeIcon icon={faSquareInstagram} />
                                  </a>
                               </li>
                               <li>
-                                 <a href="https://twitter.com">
-                                    <i className="fab fa-twitter-square" />
+                                 <a href={aboutUsData.groom.social.twitter}>
+                                    <FontAwesomeIcon icon={faSquareTwitter} />
                                  </a>
                               </li>
                               <li>
-                                 <a href="https://facebook.com">
-                                    <i className="fab fa-facebook-square" />
+                                 <a href={aboutUsData.groom.social.facebook}>
+                                    <FontAwesomeIcon icon={faSquareFacebook} />
                                  </a>
                               </li>
                            </ul>
@@ -67,62 +88,60 @@ function AboutUs() {
                   </div>
                </div>
                <div
-                  className="divider-about-us visible flip"
+                  className={cx('divider-about-us', 'visible')}
                   data-animation-direction="fade"
                   data-animation-delay={500}
                >
-                  <i className="icon-two-hearts" />
+                  <div className={cx('flip')} ref={iconClass}>
+                     <Icon.twoHearts className={cx('icon-heart')} />
+                  </div>
                </div>
                <div
-                  className="element col-md-6 col-xl-4 visible"
+                  className={cx('element', 'col-md-6 col-xl-4 visible')}
                   data-animation-direction="from-right"
                   data-animation-delay={400}
                >
-                  <div className="image flip">
-                     <img
-                        src="https://cdn.biihappy.com/ziiweb/default/website/59b631f29bfb9f7cd20437d27ddbe4db.jpeg"
-                        alt
-                        width={600}
-                        height={714}
-                     />
-                     <div className="hover-info neela-style">
-                        <span className="h-lines" />
-                        <span className="v-lines" />
-                        <div className="content">
+                  <div className={cx('image', 'flip')} onMouseEnter={handleMouseEnterBride}>
+                     <img src={aboutUsData.bride.image} alt width={600} height={714} />
+                     <div className={cx('hover-info', 'neela-style')}>
+                        <span className={cx('h-lines')} />
+                        <span className={cx('v-lines')} />
+                        <div className={cx('content')}>
                            <h3>
-                              Ngô Việt Hoài<small>The Bride</small>
+                              {aboutUsData.bride.full_name}
+                              <small>The Bride</small>
                            </h3>
                            <p>
                               Cô gái đến từ xứ Huế mộng mơ, hiện đang sinh sống và làm việc tại Sài Gòn. Sau khi tốt
                               nghiệp Học vi...
                               <a
-                                 className="button-see"
-                                 data-src="https://cdn.biihappy.com/ziiweb/default/website/59b631f29bfb9f7cd20437d27ddbe4db.jpeg"
-                                 data-content="Cô gái đến từ xứ Huế mộng mơ, hiện đang sinh sống và làm việc tại Sài Gòn. Sau khi tốt nghiệp Học viện Báo chí và Tuyên truyền, quyết tâm theo đuổi đam mê làm phóng viên du lịch. Là một người hay cười nhưng lại sống nội tâm, thích đọc sách, trồng cây và yêu thiên nhiên. Ngoài ra còn rất thích vẽ vời, nuôi mèo và nuôi ước mơ có cho mình một vườn hồng khoe sắc."
-                                 data-instagram="https://instagram.com"
-                                 data-twitter="https://twitter.com"
-                                 data-facebook="https://facebook.com"
-                                 data-name="Ngô Việt Hoài"
+                                 className={cx('button-see')}
+                                 data-src={aboutUsData.bride.image}
+                                 data-content={aboutUsData.bride.description}
+                                 data-instagram={aboutUsData.bride.social.instagram}
+                                 data-twitter={aboutUsData.bride.social.twitter}
+                                 data-facebook={aboutUsData.bride.social.facebook}
+                                 data-name={aboutUsData.bride.full_name}
                                  style={{ fontSize: 14, cursor: 'pointer' }}
                               >
                                  Xem thêm
                                  <i className="bi bi-arrow-down-short" />
                               </a>
                            </p>
-                           <ul className="sn-icons">
+                           <ul className={cx('sn-icons')}>
                               <li>
-                                 <a href="https://instagram.com">
-                                    <i className="fab fa-instagram-square" />
+                                 <a href={aboutUsData.bride.social.instagram}>
+                                    <FontAwesomeIcon icon={faSquareInstagram} />
                                  </a>
                               </li>
                               <li>
-                                 <a href="https://twitter.com">
-                                    <i className="fab fa-twitter-square" />
+                                 <a href={aboutUsData.bride.social.twitter}>
+                                    <FontAwesomeIcon icon={faSquareTwitter} />
                                  </a>
                               </li>
                               <li>
-                                 <a href="https://facebook.com">
-                                    <i className="fab fa-facebook-square" />
+                                 <a href={aboutUsData.bride.social.facebook}>
+                                    <FontAwesomeIcon icon={faSquareFacebook} />
                                  </a>
                               </li>
                            </ul>
@@ -133,40 +152,34 @@ function AboutUs() {
             </div>
             <div className="row">
                <div
-                  className="about-us-desc col-lg-8 offset-lg-2 visible"
+                  className={cx('about-us-desc', 'col-lg-8 offset-lg-2 visible')}
                   data-animation-direction="from-bottom"
                   data-animation-delay={300}
                >
-                  <h3>We are Getting Married</h3>
-                  <p>
-                     Thật vui vì được gặp và đón tiếp các bạn trong một dịp đặc biệt như đám cưới của chúng tôi. Chúng
-                     tôi muốn gửi đến bạn những lời cảm ơn sâu sắc nhất và để bạn biết chúng tôi rất hạnh phúc khi thấy
-                     bạn ở đó. Cảm ơn các bạn rất nhiều vì sự hiện diện cùng những lời chúc tốt đẹp mà bạn đã dành cho
-                     chúng tôi!
+                  <h3>{aboutUsData.title}</h3>
+                  <p>{aboutUsData.description}</p>
+                  <p className={cx('groom-bride-signature')}>
+                     <span>{aboutUsData.groom.name}</span> &amp; <span>{aboutUsData.bride.name}</span>
                   </p>
-                  <p className="groom-bride-signature">
-                     <span>Kiến Văn</span> &amp; <span>Việt Hoài</span>
-                  </p>
-                  {/*<img src="https://preview.iwedding.info/templates/template19/images/signature-2.png" alt="Andrew and Isabella"> */}
-                  <div className="parent-info-group">
-                     <div className="parent-infos">
-                        <div className="parent-info">
-                           <span className="parent-title">Con ông:</span>{' '}
-                           <span className="parent-name">Hoàng Anh Kiệt</span>
+                  <div className={cx('parent-info-group')}>
+                     <div className={cx('parent-infos')}>
+                        <div className={cx('parent-info')}>
+                           <span className={cx('parent-title')}>Con ông:</span>{' '}
+                           <span className={cx('parent-name')}>{aboutUsData.groom.father}</span>
                         </div>
-                        <div className="parent-info">
-                           <span className="parent-title">Con bà:</span>{' '}
-                           <span className="parent-name">Nguyễn Thị Hoài</span>
+                        <div className={cx('parent-info')}>
+                           <span className={cx('parent-title')}>Con bà:</span>{' '}
+                           <span className={cx('parent-name')}>{aboutUsData.groom.mother}</span>
                         </div>
                      </div>
-                     <div className="parent-infos">
-                        <div className="parent-info">
-                           <span className="parent-title">Con ông:</span>{' '}
-                           <span className="parent-name">Ngô Xuân Nghĩa</span>
+                     <div className={cx('parent-infos')}>
+                        <div className={cx('parent-info')}>
+                           <span className={cx('parent-title')}>Con ông:</span>{' '}
+                           <span className={cx('parent-name')}>{aboutUsData.bride.father}</span>
                         </div>
-                        <div className="parent-info">
-                           <span className="parent-title">Con bà:</span>{' '}
-                           <span className="parent-name">Trần Hồng Thắm</span>
+                        <div className={cx('parent-info')}>
+                           <span className={cx('parent-title')}>Con bà:</span>{' '}
+                           <span className={cx('parent-name')}>{aboutUsData.bride.mother}</span>
                         </div>
                      </div>
                   </div>
