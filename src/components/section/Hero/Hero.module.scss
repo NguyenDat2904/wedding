@@ -1,5 +1,5 @@
 .hero {
-   min-height: 927px;
+   height: 100vh;
    position: relative;
    background-color: transparent;
    text-align: center;
@@ -225,6 +225,9 @@
 }
 
 @media (max-width: 1199px) {
+   .v-center {
+      margin-top: auto;
+   }
    .hero-wrapper .hero-title {
       font-size: 54pt;
    }
@@ -237,6 +240,9 @@
 }
 
 @media (max-width: 991px) {
+   .hero::after {
+      border-width: 0 0 90px 100vw;
+   }
    .hero-wrapper .hero-title {
       font-size: 44pt;
       margin-bottom: 50px;
@@ -276,6 +282,11 @@
       content: '';
       width: 219px;
       height: 395px;
+   }
+}
+@media (max-width: 576px) {
+   .hero::after {
+      border-width: 0 0 60px 100vw;
    }
 }
 

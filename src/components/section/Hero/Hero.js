@@ -25,7 +25,7 @@ function Hero() {
          <div className="container" style={{ zIndex: 2, marginTop: '101.07px' }}>
             <div className="row">
                <div className="col-sm-12">
-                  <div className={cx('hero-wrapper')}>
+                  <div className={cx('hero-wrapper', 'v-center')}>
                      <h2 data-animation-direction="fade" data-animation-delay={600} className={cx('visible')}>
                         Save the Date
                      </h2>

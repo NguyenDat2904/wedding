@@ -1,0 +1,110 @@
+#our-story-title {
+   font-size: 38pt;
+   line-height: 38pt;
+   text-align: center;
+   color: #fff;
+   font-family: 'Marmelad', sans-serif;
+}
+.section-divider-bottom-2 {
+   padding-bottom: 170px !important;
+}
+.padding-divider-top {
+   padding-top: 170px;
+}
+.parallax-background {
+   width: 100%;
+   background-attachment: fixed;
+   background-repeat: repeat-y;
+   -webkit-background-size: cover;
+   background-size: cover;
+}
+.bg-color-overlay::before {
+   content: '';
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   opacity: 0.8;
+   z-index: -1;
+   background-color: #4d5271;
+}
+.section-divider-top-1.off-section {
+   position: absolute;
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 130px;
+}
+.section-divider-top-1 {
+   padding-top: 170px !important;
+}
+.section-divider-top-1::before {
+   content: '';
+   position: absolute;
+   left: 0;
+   top: 0;
+   z-index: 0;
+   width: 0;
+   height: 0;
+   border-style: solid;
+   border-width: 130px 100vw 0 0;
+   border-color: #fff transparent transparent transparent;
+}
+.section-divider-bottom-2::after {
+   content: '';
+   position: absolute;
+   left: 0;
+   bottom: 0;
+   z-index: 0;
+   width: 0;
+   height: 0;
+   border-style: solid;
+   border-width: 150px 0 0 100vw;
+   border-color: transparent transparent transparent #fff;
+}
+#our-story-title .section-title {
+   margin-bottom: 0;
+}
+
+@media (max-width: 991px) {
+   .padding-divider-top {
+      padding-top: 100px;
+   }
+   .section-divider-bottom-2 {
+      padding-bottom: 100px !important;
+   }
+   .section-divider-top-1.off-section {
+      height: 90px;
+   }
+   .section-divider-top-1 {
+      padding-top: 100px !important;
+   }
+   .section-divider-top-1::before {
+      border-width: 90px 100vw 0 0;
+   }
+   .section-divider-bottom-2::after {
+      border-width: 90px 0 0 100vw;
+   }
+}
+
+@media (max-width: 576px) {
+   .section-divider-bottom-2 {
+      padding-bottom: 70px !important;
+   }
+   .padding-divider-top {
+      padding-top: 70px;
+   }
+   .section-divider-top-1.off-section {
+      height: 60px;
+   }
+   .section-divider-top-1 {
+      padding-top: 70px !important;
+   }
+   .section-divider-top-1::before {
+      border-width: 60px 100vw 0 0;
+   }
+   .section-divider-bottom-2::after {
+      border-width: 60px 0 0 100vw;
+   }
+}
