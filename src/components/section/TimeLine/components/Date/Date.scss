@@ -1,0 +1,28 @@
+.year {
+   padding: 7px 0;
+   position: relative;
+   z-index: 1;
+   text-align: center;
+   width: 100%;
+   background-color: var(--white);
+   margin-bottom: 70px;
+   line-height: 1.6;
+}
+.year .neela-style {
+   --offset: 7px;
+   --border-size: 1px;
+   font-family: 'Marmelad', sans-serif;
+   color: var(--primary);
+   font-size: 27pt;
+   position: relative;
+   padding: 4px 32px;
+}
+.timeline .year .neela-style .h-lines {
+   border-top-color: #747ba9;
+   border-bottom-color: #747ba9;
+}
+@media (max-width: 450px) {
+   .timeline .year .neela-style {
+      font-size: 21pt;
+   }
+}
