@@ -1,0 +1,87 @@
+.card-item {
+   position: relative;
+   display: block;
+   color: var(--primary);
+   background-color: var(--white);
+   padding: 35px;
+   margin-bottom: 35px;
+   font-family: var(--font-primary);
+}
+
+.card-item h3 {
+   position: relative;
+   display: inline-block;
+   line-height: 1;
+   z-index: 2;
+   font-size: 26pt;
+   color: var(--primary);
+}
+
+.dresscode-colors-wrap {
+   width: 100%;
+}
+.dresscode-colors-event {
+   position: relative;
+   display: flex;
+   align-items: center;
+   gap: 5px;
+   margin: 8px 0;
+}
+.dresscode-colors-event > .dresscode-colors-item {
+   border-radius: 50%;
+   width: 20px;
+   height: 20px;
+   border: 0.5px solid gray;
+}
+.card-item strong {
+   font-weight: 400;
+   line-height: 1.6;
+}
+
+.card-item > .neela-style {
+   --offset: 7px;
+   --border-size: 1px;
+   color: var(--primary);
+   position: relative;
+   padding: 32px;
+   z-index: 0;
+}
+.card-item .info {
+   margin-top: 20px;
+}
+.card-item:hover .info {
+   opacity: 1;
+   top: 20px;
+   max-height: 500px;
+}
+.card-item .info a {
+   margin: 20px 10px;
+}
+
+@media (max-width: 991px) {
+   .card-item .event-item-content {
+      flex-wrap: wrap;
+      text-align: center !important;
+      justify-content: center !important;
+   }
+   .card-item h3 {
+      font-size: 20pt;
+      margin-bottom: 20px;
+   }
+   .card-item .event-item-content p {
+      text-align: start;
+   }
+   .dresscode-colors-event {
+      justify-content: start;
+      gap: 4px !important;
+   }
+   .btn-event {
+      width: 100% !important;
+   }
+}
+
+@media (max-width: 480px) {
+   .card-item h3 {
+      font-size: 14pt;
+   }
+}

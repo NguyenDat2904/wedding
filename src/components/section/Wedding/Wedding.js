@@ -1,6 +1,7 @@
 import React from 'react';
 import './Wedding.scss';
 import { bride, groom } from '../../data';
+import Button from '../../Button/Button';
 function Wedding() {
    return (
       <section
@@ -41,27 +42,16 @@ function Wedding() {
                            Một lời chúc của bạn chắc chắn sẽ làm cho đám cưới của chúng tôi có thêm một niềm hạnh phúc!
                         </div>
                         <div className="center m-0 mt-2">
-                           <a
-                              href="#rsvp"
-                              className="btn btn-primary reverse scrollto text-white px-2"
-                              style={{ minWidth: 240, maxWidth: 240, width: 255 }}
-                           >
-                              <span className="h-lines" />
-                              <span className="v-lines" />
-                              Gửi lời chúc
-                           </a>
+                           <Button title="Gửi lời chúc" href="#rsvp" white width="255px" />
                         </div>
                         <div className="center m-0">
-                           <a
+                           <Button
+                              title="Xác nhận tham dự"
                               href="https://preview.iwedding.info/rsvp"
                               target="_blank"
-                              className="btn btn-primary reverse text-white px-2 mt-2"
-                              style={{ minWidth: 240, maxWidth: 240, width: 255 }}
-                           >
-                              <span className="h-lines" />
-                              <span className="v-lines" />
-                              Xác nhận tham dự
-                           </a>
+                              white
+                              width="255px"
+                           />
                         </div>
                         <div className="date">20 Tháng 10 2024</div>
                         <div className="count-down-clock">

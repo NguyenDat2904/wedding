@@ -12,7 +12,7 @@
    --font-primary: 'Open Sans', sans-serif;
    --font-title: 'Marmelad', cursive;
 
-   --border-size: 1px;
+   /* --border-size: 1px; */
 }
 
 body {
@@ -81,8 +81,8 @@ img {
 .h-lines::before {
    top: calc(var(--vertical-offset) - var(--border-size));
    bottom: calc(var(--vertical-offset) - var(--border-size));
-   left: calc(var(--offset) - var(--border-size));
-   right: calc(var(--offset) - var(--border-size));
+   left: calc(var(--offset));
+   right: calc(var(--offset));
 }
 
 .v-lines {
@@ -93,8 +93,8 @@ img {
    left: calc(var(--border-size) * -1);
 }
 .v-lines::before {
-   top: calc(var(--offset) - var(--border-size));
-   bottom: calc(var(--offset) - var(--border-size));
+   top: calc(var(--offset));
+   bottom: calc(var(--offset));
    left: calc(var(--horizontal-offset) - var(--border-size));
    right: calc(var(--horizontal-offset) - var(--border-size));
 }
@@ -108,10 +108,10 @@ img {
 .h-lines,
 .v-lines {
    position: absolute;
-   top: var(--horizontal-offset, 0);
-   right: var(--vertical-offset, 0);
-   bottom: var(--horizontal-offset, 0);
-   left: var(--vertical-offset, 0);
+   top: var(--horizontal-offset, -1px);
+   right: var(--vertical-offset, -1px);
+   bottom: var(--horizontal-offset, -1px);
+   left: var(--vertical-offset, -1px);
    transition: transform 0.8s ease;
    will-change: transform;
    z-index: 0;

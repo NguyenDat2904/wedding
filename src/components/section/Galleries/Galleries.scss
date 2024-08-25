@@ -1,0 +1,25 @@
+.grid-images {
+   display: grid;
+   margin: 0 -7.5px;
+   position: relative;
+   height: auto;
+   grid-template-columns: repeat(24, 1fr);
+}
+.gallery-item {
+   padding: 0 7.5px 15px;
+   display: block;
+   width: 33.33333%;
+   position: absolute;
+}
+
+@media (max-width: 600px) {
+   .gallery-item {
+      width: 50%;
+   }
+}
+
+@media (max-width: 767px) {
+   .gallery-item {
+      padding: 0 5px 10px;
+   }
+}

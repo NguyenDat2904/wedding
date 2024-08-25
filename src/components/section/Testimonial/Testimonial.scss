@@ -1,0 +1,105 @@
+#testimonials {
+   background-color: var(--primary);
+}
+.side-flowers-light {
+   overflow: hidden;
+}
+.side-flowers-light::after,
+.side-flowers-light::before {
+   content: '';
+   width: 407px;
+   height: 804px;
+   position: absolute;
+   top: 50%;
+   z-index: -1;
+   background-position: center center;
+   background-image: url('https://preview.iwedding.info/templates/template19/images/flower-large-light.svg');
+   background-repeat: no-repeat;
+   opacity: 0.2;
+}
+.side-flowers-light::after {
+   right: 0;
+   transform: scaleX(-1) translateY(-50%);
+}
+.side-flowers-light::before {
+   left: 0;
+   transform: translateY(-50%);
+}
+.testimonials-swiper .swiper-wrapper {
+   margin-bottom: 70px;
+}
+.testimonials-swiper .item {
+   color: var(--white);
+}
+.testimonials-swiper .item blockquote {
+   padding: 20px 75px;
+   position: relative;
+   min-height: 90px;
+   text-align: center;
+   user-select: none;
+}
+
+.testimonials-swiper .item blockquote::after,
+.testimonials-swiper .item blockquote::before {
+   content: '“';
+   position: absolute;
+   font-family: 'Marmelad', sans-serif;
+   font-size: 145pt;
+   line-height: 1;
+   left: 0;
+   top: 50%;
+   margin-top: -68px;
+   opacity: 0.26;
+}
+.testimonials-swiper .item blockquote::after {
+   content: '”';
+   left: auto;
+   right: 0;
+}
+
+// Bullet
+.swiper-pagination-bullet {
+   position: relative;
+   height: 20px;
+   width: 20px;
+   background: transparent;
+}
+.swiper-pagination-bullet::after {
+   position: absolute;
+   content: '';
+   border-radius: 0;
+   width: 20px;
+   height: 3px;
+   background-color: var(--white);
+   opacity: 0.5;
+   transition: all 0.5s;
+   bottom: 0;
+   left: 0;
+}
+.swiper-pagination-bullet:hover::after,
+.swiper-pagination-bullet-active::after {
+   height: 6px;
+   opacity: 1;
+}
+@media (max-width: 1199px) {
+   .side-flowers-light::before {
+      left: -145px;
+   }
+   .side-flowers-light::after {
+      right: -145px;
+   }
+}
+
+@media (max-width: 576px) {
+   .side-flowers-light::before {
+      left: -200px;
+   }
+   .side-flowers-light::after {
+      right: -200px;
+   }
+   .testimonials-swiper .item blockquote::after,
+   .testimonials-swiper .item blockquote::before {
+      font-size: 100pt;
+      margin-top: -56px;
+   }
+}
