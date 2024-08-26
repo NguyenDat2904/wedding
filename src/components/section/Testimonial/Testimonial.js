@@ -1,4 +1,6 @@
 import React from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -7,6 +9,8 @@ import { Autoplay, Pagination } from 'swiper/modules';
 import './Testimonial.scss';
 
 function Testimonial() {
+   AOS.init();
+
    const quotes = [
       'Tình yêu không có rào cản. Nó nhảy rào, nhảy rào, xuyên tường để đến đích với đầy hy vọng.',
       'Tình yêu không có rào cản. Nó nhảy rào, nhảy rào, xuyên tường để đến đích với đầy hy vọng 2.',
@@ -29,6 +33,9 @@ function Testimonial() {
                      modules={[Autoplay, Pagination]}
                      className="testimonials-swiper"
                      loop
+                     data-aos="fade-up"
+                     data-aos-delay="50"
+                     data-aos-duration="1000"
                   >
                      {quotes.map((quote, index) => (
                         <SwiperSlide key={index}>

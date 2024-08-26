@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Button from '../../Button/Button';
 import classNames from 'classnames/bind';
 import style from './Hero.module.scss';
 import ZoomSlider from '../../ZomeSlider/ZomeSlider';
@@ -9,13 +10,8 @@ function Hero() {
 
    useEffect(() => {
       const timer = setInterval(() => {
-         setCurrentSlide((prevSlide) =>
-            // Nếu đây là slide cuối cùng, quay lại slide đầu tiên, ngược lại tăng chỉ số slide
-            prevSlide === 2 ? 0 : prevSlide + 1,
-         );
-      }, 5000); // 5000ms = 5 giây
-
-      // Dọn dẹp bộ đếm thời gian khi component bị unmount
+         setCurrentSlide((prevSlide) => (prevSlide === 2 ? 0 : prevSlide + 1));
+      }, 5000);
       return () => clearInterval(timer);
    }, []);
 
@@ -33,12 +29,8 @@ function Hero() {
                         <span className={cx('d-block', 'd-sm-inline', 'visible')}> {globalData.brideName}</span>
                      </h1>
                      <div className={cx('hero-subtitle', 'light', 'visible')}>{globalData.weddingDate}</div>
-                     <div className={cx('animation-fade', 'animate-fade')}>
-                        <a href="#rsvp" className={cx('btn', 'btn-light', 'scrollto')} style={{ width: 214 }}>
-                           <span className={cx('h-lines')} />
-                           <span className={cx('v-lines')} />
-                           Gửi lời chúc
-                        </a>
+                     <div className={cx('animation-fade', 'animate-fade')} style={{ marginTop: '40px' }}>
+                        <Button white title="Gửi lời chúc" />
                      </div>
                   </div>
                </div>

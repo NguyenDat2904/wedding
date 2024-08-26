@@ -1,14 +1,18 @@
 import React from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import './Gallery.scss';
 import Title from '../../../../Title/Title';
 
 function Gallery({ image, title, desc }) {
+   AOS.init();
    return (
       <div className="gallery-container">
          <div
             className="timeline-gallery-wrapper animate-from-left animation-from-left"
-            data-animation-direction="from-left"
-            data-animation-delay={250}
+            data-aos="fade-right"
+            data-aos-duration="1000"
+            data-aos-once="true"
          >
             <div className="timeline-gallery-del">
                <div className="item text-center">
@@ -18,8 +22,9 @@ function Gallery({ image, title, desc }) {
          </div>
          <div
             className="description-wrapper animate-from-bottom animation-from-bottom"
-            data-animation-direction="from-bottom"
-            data-animation-delay={250}
+            data-aos="fade-up"
+            data-aos-duration="1000"
+            data-aos-once="true"
          >
             <div className="description">
                <div className="neela-style">

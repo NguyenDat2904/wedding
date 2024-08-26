@@ -1,8 +1,12 @@
 import React from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import './Wedding.scss';
 import { bride, groom } from '../../data';
 import Button from '../../Button/Button';
 function Wedding() {
+   AOS.init();
+
    return (
       <section
          id="invitation"
@@ -24,8 +28,10 @@ function Wedding() {
                <div className="col-md-12 col-lg-10 offset-lg-1 col-xl-8 offset-xl-2 center">
                   <div
                      className="invite neela-style animate-from-left animation-from-left"
-                     data-animation-direction="from-left"
-                     data-animation-delay={100}
+                     data-aos="fade-right"
+                     data-aos-duration="1500"
+                     data-aos-delay="250"
+                     data-aos-once="true"
                   >
                      <span className="h-lines" />
                      <span className="v-lines" />

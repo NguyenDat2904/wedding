@@ -1,4 +1,6 @@
 import React, { Fragment } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import './TimeLine.scss';
 import Date from './components/Date/Date';
 import Gallery from './components/Gallery/Gallery';
@@ -6,6 +8,7 @@ import { storyData } from '../../data';
 import diamond from '../../../assets/images/diamond-ring.png';
 
 function TimeLine() {
+   AOS.init();
    return (
       <section id="story">
          <div className="container">
@@ -21,16 +24,18 @@ function TimeLine() {
                   </div>
                   <div className="timeline_footer">
                      <div
-                        data-animation-direction="from-top"
-                        data-animation-delay={250}
+                        data-aos="fade-down"
+                        data-aos-duration="1000"
+                        data-aos-once="true"
                         className="animate-from-top animation-from-top"
                      >
                         <img src={diamond} alt="diamond ring" />
                      </div>
                      <div
                         className="punchline animate-from-bottom animation-from-bottom"
-                        data-animation-direction="from-bottom"
-                        data-animation-delay={250}
+                        data-aos="fade-up"
+                        data-aos-duration="1000"
+                        data-aos-once="true"
                      >
                         <small>This is where our FOREVER BEGINS!</small>
                      </div>

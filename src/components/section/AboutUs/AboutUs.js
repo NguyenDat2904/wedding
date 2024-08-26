@@ -1,4 +1,6 @@
 import React, { useRef, useState } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import classNames from 'classnames/bind';
 import style from './AboutUs.module.scss';
 import { Icon, aboutUsData } from '../../data';
@@ -31,12 +33,17 @@ function AboutUs() {
       // Thêm class animation-fade khi hover vào bride
       updateIconClass(true);
    };
+
+   AOS.init();
    return (
       <section className={cx('couple')}>
          <div className="container">
             <div className={cx('row', 'about-elems-wrapper')}>
                <div
                   className={cx('element', 'col-md-6 col-xl-4 offset-xl-2 visible')}
+                  data-aos="fade-right"
+                  data-aos-delay="300"
+                  data-aos-duration="1500"
                >
                   <div className={cx('image')} onMouseEnter={handleMouseEnterGroom}>
                      <img src={aboutUsData.groom.image} alt width={600} height={714} />
@@ -85,19 +92,16 @@ function AboutUs() {
                      </div>
                   </div>
                </div>
-               <div
-                  className={cx('divider-about-us', 'visible')}
-                  data-animation-direction="fade"
-                  data-animation-delay={500}
-               >
+               <div className={cx('divider-about-us', 'visible')}>
                   <div className={cx('flip')} ref={iconClass}>
                      <Icon.twoHearts className={cx('icon-heart')} />
                   </div>
                </div>
                <div
                   className={cx('element', 'col-md-6 col-xl-4 visible')}
-                  data-animation-direction="from-right"
-                  data-animation-delay={400}
+                  data-aos="fade-left"
+                  data-aos-delay="100"
+                  data-aos-duration="1500"
                >
                   <div className={cx('image', 'flip')} onMouseEnter={handleMouseEnterBride}>
                      <img src={aboutUsData.bride.image} alt width={600} height={714} />
@@ -151,8 +155,9 @@ function AboutUs() {
             <div className="row">
                <div
                   className={cx('about-us-desc', 'col-lg-8 offset-lg-2 visible')}
-                  data-animation-direction="from-bottom"
-                  data-animation-delay={300}
+                  data-aos="fade-up"
+                  data-aos-delay="300"
+                  data-aos-duration="1500"
                >
                   <h3>{aboutUsData.title}</h3>
                   <p>{aboutUsData.description}</p>

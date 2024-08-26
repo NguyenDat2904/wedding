@@ -1,7 +1,11 @@
 import React from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import './Invitation.scss';
 import Title from '../../Title/Title';
 function Invitation() {
+   AOS.init();
+
    return (
       <section
          id="invitation"
@@ -21,8 +25,10 @@ function Invitation() {
             </div>
             <div
                className="invite neela-style animate-from-left animation-from-left"
-               data-animation-direction="from-left"
-               data-animation-delay={100}
+               data-aos="fade-right"
+               data-aos-duration="1500"
+               data-aos-delay="250"
+               data-aos-once="true"
             >
                <span className="h-lines" />
                <span className="v-lines" />

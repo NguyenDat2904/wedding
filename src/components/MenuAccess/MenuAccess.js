@@ -4,10 +4,12 @@ import Tooltip from 'react-bootstrap/Tooltip';
 import './MenuAccess.scss';
 
 function MenuAccess() {
+   const [isActive, setIsActive] = useState(true);
+
    const TooltipItem = ({ id, title, show, htmlContent, handleMouseEnter, handleMouseLeave }) => {
       return (
          <OverlayTrigger show={show} placement="left" overlay={<Tooltip id={id}>{title}</Tooltip>}>
-            <li className="text-center">
+            <li className={`text-center ${show ? 'shake' : ''}`}>
                <a
                   href="#"
                   dangerouslySetInnerHTML={{ __html: htmlContent }}
@@ -19,7 +21,7 @@ function MenuAccess() {
       );
    };
 
-   const TooltipCycler = () => {
+   const TooltipCycler = ({ isActive }) => {
       const [currentTooltip, setCurrentTooltip] = useState(0);
 
       useEffect(() => {
@@ -29,9 +31,8 @@ function MenuAccess() {
             { id: 'tooltip3', title: 'Tooltip 3' },
          ];
 
-         const showDuration = 3000; // Thời gian hiển thị tooltip (3 giây)
-         const hideDuration = 1000; // Thời gian ẩn tooltip (1 giây)
-
+         const showDuration = 5000;
+         const hideDuration = 1000;
          const cycleTooltips = () => {
             tooltips.forEach((tooltip, index) => {
                setTimeout(() => {
@@ -68,7 +69,7 @@ function MenuAccess() {
       ];
 
       return (
-         <ul className="p-0 m-0 list-menu-icon" style={{ opacity: 1 }}>
+         <ul className={`p-0 m-0  list-menu-icon ${!isActive && 'hide'}`}>
             {tooltips.map((tooltip, index) => (
                <TooltipItem
                   key={tooltip.id}
@@ -84,7 +85,11 @@ function MenuAccess() {
 
    return (
       <div id="menu-access" className>
-         <div className="btn-menu-open" style={{ display: 'none' }}>
+         <div
+            onClick={() => setIsActive(true)}
+            className="btn-menu-open"
+            style={{ display: isActive === false ? 'block' : 'none' }}
+         >
             <svg
                xmlns="http://www.w3.org/2000/svg"
                width={16}
@@ -99,7 +104,11 @@ function MenuAccess() {
                />
             </svg>
          </div>
-         <div className="btn-menu-close" style={{ display: 'block' }}>
+         <div
+            onClick={() => setIsActive(false)}
+            className="btn-menu-close"
+            style={{ display: isActive === true ? 'block' : 'none' }}
+         >
             <svg
                xmlns="http://www.w3.org/2000/svg"
                width={16}
@@ -111,7 +120,7 @@ function MenuAccess() {
                <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
             </svg>
          </div>
-         <TooltipCycler />
+         <TooltipCycler isActive={isActive} />
       </div>
    );
 }

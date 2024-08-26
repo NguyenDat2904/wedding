@@ -1,12 +1,16 @@
 import React from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import './Card.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faClock, faLocationPin, faUserTie } from '@fortawesome/free-solid-svg-icons';
 import Button from '../../../Button/Button';
 
 function Card({ img, title, time, location, googleMap, textType }) {
+   AOS.init();
+
    return (
-      <li className="animate-from-bottom card-item">
+      <li className="animate-from-bottom card-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="250">
          <div className="neela-style">
             <span className="h-lines" />
             <span className="v-lines" />
