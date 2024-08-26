@@ -26,45 +26,14 @@ function Hero() {
             <div className="row">
                <div className="col-sm-12">
                   <div className={cx('hero-wrapper', 'v-center')}>
-                     <h2 data-animation-direction="fade" data-animation-delay={600} className={cx('visible')}>
-                        Save the Date
-                     </h2>
+                     <h2 className={cx('visible')}>Save the Date</h2>
                      <h1 className={cx('hero-title', 'light')}>
-                        <span
-                           className={cx('d-block', 'd-sm-inline', 'visible')}
-                           data-animation-direction="from-right"
-                           data-animation-delay={300}
-                        >
-                           {globalData.groomName}{' '}
-                        </span>
-                        <small
-                           className={cx('d-block', 'd-sm-inline', 'visible')}
-                           data-animation-direction="from-top"
-                           data-animation-delay={300}
-                        >
-                           &amp;
-                        </small>
-                        <span
-                           className={cx('d-block', 'd-sm-inline', 'visible')}
-                           data-animation-direction="from-left"
-                           data-animation-delay={300}
-                        >
-                           {' '}
-                           {globalData.brideName}
-                        </span>
+                        <span className={cx('d-block', 'd-sm-inline', 'visible')}>{globalData.groomName} </span>
+                        <small className={cx('d-block', 'd-sm-inline', 'visible')}>&amp;</small>
+                        <span className={cx('d-block', 'd-sm-inline', 'visible')}> {globalData.brideName}</span>
                      </h1>
-                     <div
-                        className={cx('hero-subtitle', 'light', 'visible')}
-                        data-animation-direction="fade"
-                        data-animation-delay={1000}
-                     >
-                        {globalData.weddingDate}
-                     </div>
-                     <div
-                        data-animation-direction="fade"
-                        data-animation-delay={1000}
-                        className={cx('animation-fade', 'animate-fade')}
-                     >
+                     <div className={cx('hero-subtitle', 'light', 'visible')}>{globalData.weddingDate}</div>
+                     <div className={cx('animation-fade', 'animate-fade')}>
                         <a href="#rsvp" className={cx('btn', 'btn-light', 'scrollto')} style={{ width: 214 }}>
                            <span className={cx('h-lines')} />
                            <span className={cx('v-lines')} />

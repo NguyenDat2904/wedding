@@ -1,0 +1,64 @@
+.form-wrapper form {
+   position: relative;
+   z-index: 10;
+}
+#wish-form > div {
+   margin-bottom: 20px;
+}
+.form-control,
+.form-select {
+   background-color: #fbfbfb;
+   border: 1px solid #e1e1e1;
+   color: #73777b;
+   height: auto;
+   padding: 11px 20px;
+   border-radius: 0;
+   transition: border-color 0.3s ease-out;
+}
+.form-control {
+   display: block;
+   width: 100%;
+   font-weight: 400;
+   line-height: 1.5;
+   background-clip: padding-box;
+   appearance: none;
+}
+.validate-rsvp-form label.error {
+   color: red;
+   margin: 5px 0 0 0;
+   font-weight: normal;
+   font-size: 0.9rem;
+}
+.form-control:focus,
+.form-select:focus {
+   outline: 0 none;
+   border-color: var(--primary);
+   background-color: #fbfbfb;
+   box-shadow: none;
+}
+textarea.form-control {
+   min-height: 100px;
+}
+#wish-form .textAreaIcons {
+   position: relative;
+   text-align: right;
+   background: #fff;
+   padding: 10px;
+   border-top: none;
+   border: 1px solid #ddd;
+}
+#wish-form .textAreaIcons span {
+   color: #333;
+   cursor: pointer;
+   margin-right: 4px;
+}
+#wish-form .tooltip-custom {
+   position: relative;
+   display: inline-block;
+}
+
+@media (max-width: 480px) {
+   .form-wrapper {
+      padding: 20px 25px;
+   }
+}

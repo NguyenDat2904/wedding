@@ -36,10 +36,14 @@
    position: relative;
    z-index: 10;
    text-align: center;
+   transition: transform 0.5s ease-in-out;
    p {
       line-height: 1.6;
       margin-bottom: 0;
    }
+}
+.gallery-container:hover .description {
+   transform: translateX(15%);
 }
 .description .neela-style {
    --offset: 9px;

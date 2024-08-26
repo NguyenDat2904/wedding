@@ -116,3 +116,17 @@ img {
    will-change: transform;
    z-index: 0;
 }
+
+::-webkit-scrollbar {
+   width: 8px;
+   background: var(--white);
+}
+
+::-webkit-scrollbar-thumb {
+   background: var(--primary);
+   border-radius: 8px;
+}
+::selection {
+   background: #8caebb;
+   color: var(--white);
+}

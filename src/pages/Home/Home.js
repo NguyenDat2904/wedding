@@ -10,20 +10,28 @@ import Galleries from '../../components/section/Galleries/Galleries';
 import Invitation from '../../components/section/Invitation/Invitation';
 import Event from '../../components/section/Event/Event';
 import Testimonial from '../../components/section/Testimonial/Testimonial';
+import Comment from '../../components/section/Comment/Comment';
+import Gifts from '../../components/section/Gifts/Gifts';
+import MenuAccess from '../../components/MenuAccess/MenuAccess';
+import ButtonPlayer from '../../components/MenuAccess/ButtonPlayer/ButtonPlayer';
 
 function Home() {
    return (
       <div>
          <Header />
+         <MenuAccess />
+         <ButtonPlayer />
          <Hero />
          <AboutUs />
          <Story />
          <TimeLine />
          <Wedding />
-         <Galleries />
+         {/* <Galleries /> */}
          <Invitation />
          <Event />
          <Testimonial />
+         <Comment />
+         <Gifts />
          <Footer />
       </div>
    );

@@ -51,3 +51,13 @@
       overflow: hidden;
    }
 }
+@media (max-width: 767px) {
+   .timeline_footer .punchline small {
+      font-size: 16pt;
+   }
+}
+@media (max-width: 480px) {
+   .timeline_footer .punchline small {
+      font-size: 14pt;
+   }
+}

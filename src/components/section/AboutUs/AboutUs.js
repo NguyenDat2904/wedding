@@ -37,8 +37,6 @@ function AboutUs() {
             <div className={cx('row', 'about-elems-wrapper')}>
                <div
                   className={cx('element', 'col-md-6 col-xl-4 offset-xl-2 visible')}
-                  data-animation-direction="from-left"
-                  data-animation-delay={300}
                >
                   <div className={cx('image')} onMouseEnter={handleMouseEnterGroom}>
                      <img src={aboutUsData.groom.image} alt width={600} height={714} />

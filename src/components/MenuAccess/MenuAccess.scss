@@ -1,0 +1,86 @@
+#menu-access {
+   position: fixed;
+   bottom: 226px;
+   right: 50px;
+   width: 40px;
+   height: 40px;
+   z-index: 99999;
+}
+
+.btn-menu-open,
+.btn-menu-close {
+   cursor: pointer;
+   width: 40px;
+   height: 40px;
+   border-radius: 50%;
+   -moz-border-radius: 50%;
+   -webkit-border-radius: 50%;
+   -ms-border-radius: 50%;
+   -o-border-radius: 50%;
+   background-color: #df4758;
+   transition: all 2s ease-in;
+   position: relative;
+   bottom: -156px;
+}
+
+.btn-menu-open > svg,
+.btn-menu-close > svg {
+   padding-top: 5px;
+   padding-left: 6px;
+   height: 33px;
+   width: auto;
+   color: #fff;
+}
+.list-menu-icon {
+   opacity: 0;
+   transition: opacity 0.3s ease-in-out;
+   list-style: none;
+   position: absolute;
+   bottom: -116px;
+}
+
+#menu-access > ul > li {
+   background-color: #df4758;
+   border-radius: 50%;
+   width: 42px;
+   height: 42px;
+   margin-bottom: 10px;
+}
+
+.content-button {
+   position: relative;
+   top: 3px;
+}
+img.access-icon {
+   height: 25px;
+   width: auto;
+   margin-top: 4px;
+}
+.btn-menu-open::after,
+.btn-menu-close::after {
+   position: absolute;
+   display: block;
+   content: '';
+   border-radius: 50%;
+   background-color: rgba(242, 59, 67, 0.3);
+   width: 120%;
+   height: 120%;
+   left: -10%;
+   top: -10%;
+   animation: biilogo-pulse 1s infinite;
+   z-index: -1;
+}
+
+.bs-tooltip-start .tooltip-arrow::before {
+   border-left-color: #df4758;
+}
+.tooltip-inner {
+   background-color: #df4758;
+}
+
+@media (max-width: 799px) {
+   #menu-access {
+      bottom: 186px;
+      right: 20px;
+   }
+}

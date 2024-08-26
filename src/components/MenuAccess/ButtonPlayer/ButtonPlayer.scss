@@ -1,0 +1,61 @@
+.bii-player {
+   position: fixed;
+   bottom: 70px;
+   left: 50px;
+   width: 40px;
+   height: 40px;
+   z-index: 99999;
+}
+
+.bii-player-secondary {
+   position: absolute;
+   width: 310px;
+   left: 25px;
+   height: 50px;
+   overflow: hidden;
+   visibility: hidden;
+}
+.bii-player .playerIcon {
+   cursor: pointer;
+   display: block;
+   width: 40px;
+   height: 40px;
+   border-radius: 50%;
+   background-color: #df4758;
+   padding-top: 7px;
+   padding-left: 9px;
+   position: absolute;
+   z-index: 2;
+}
+.bii-player:after {
+   content: '';
+   position: absolute;
+   border-radius: 50%;
+   z-index: -1;
+   background-color: rgba(242, 59, 67, 0.3);
+   width: 120%;
+   height: 120%;
+   left: -10%;
+   top: -10%;
+   animation: biilogo-pulse 1s infinite;
+   z-index: 1;
+}
+
+@keyframes biilogo-pulse {
+   0% {
+      transform: scale3d(1, 1, 1);
+   }
+   50% {
+      transform: scale3d(0.95, 0.95, 0.95);
+   }
+   100% {
+      transform: scale3d(1, 1, 1);
+   }
+}
+
+@media (max-width: 799px) {
+   .bii-player {
+      bottom: 30px;
+      left: 20px;
+   }
+}
