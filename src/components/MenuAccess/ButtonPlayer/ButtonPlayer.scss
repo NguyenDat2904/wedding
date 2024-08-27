@@ -1,10 +1,16 @@
 .bii-player {
    position: fixed;
-   bottom: 70px;
+   bottom: 120px;
    left: 50px;
    width: 40px;
    height: 40px;
    z-index: 99999;
+}
+.bii-prev{
+   bottom: 170px;
+}
+.bii-next{
+   bottom: 70px;
 }
 
 .bii-player-secondary {
@@ -17,15 +23,24 @@
 }
 .bii-player .playerIcon {
    cursor: pointer;
-   display: block;
+   display: flex;
+   justify-content: center;
+   align-items: center;
    width: 40px;
    height: 40px;
    border-radius: 50%;
    background-color: #df4758;
-   padding-top: 7px;
-   padding-left: 9px;
    position: absolute;
    z-index: 2;
+}
+.bii-player .playerIcon span {
+   width: 25px;
+   height: 27px;
+}
+.bii-player .playerIcon svg {
+   color: var(--white);
+   height: 27px;
+   width: 25px;
 }
 .bii-player:after {
    content: '';
