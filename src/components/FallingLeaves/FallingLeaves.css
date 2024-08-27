@@ -1,0 +1,45 @@
+/* FallingLeaves.css */
+.falling-leaves {
+   position: fixed;
+   top: 0;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   width: 100%;
+   height: 100%;
+   overflow: hidden;
+   z-index: 999999999;
+   pointer-events: none;
+}
+
+.leaf-scene {
+   position: absolute;
+   top: 0;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   transform-style: preserve-3d;
+   will-change: transform;
+}
+
+.leaf-scene div {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 20px;
+   height: 20px;
+   transform-style: preserve-3d;
+   backface-visibility: visible;
+   will-change: transform;
+}
+
+.leaf-scene div:nth-child(odd) {
+   background: url('/src/assets/images/snow1.png');
+   background-size: 100%;
+   background-repeat: no-repeat;
+}
+
+.leaf-scene div:nth-child(even) {
+   background: url('/src/assets/images/snow2.png');
+   background-size: 100%;
+}

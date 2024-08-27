@@ -14,11 +14,13 @@ import Comment from '../../components/section/Comment/Comment';
 import Gifts from '../../components/section/Gifts/Gifts';
 import MenuAccess from '../../components/MenuAccess/MenuAccess';
 import ButtonPlayer from '../../components/MenuAccess/ButtonPlayer/ButtonPlayer';
+import FallingLeaves from '../../components/FallingLeaves/FallingLeaves';
 
 function Home() {
    return (
       <div>
          <Header />
+         <FallingLeaves />
          <MenuAccess />
          <ButtonPlayer />
          <Hero />
@@ -26,7 +28,7 @@ function Home() {
          <Story />
          <TimeLine />
          <Wedding />
-         {/* <Galleries /> */}
+         <Galleries />
          <Invitation />
          <Event />
          <Testimonial />
