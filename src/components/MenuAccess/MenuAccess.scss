@@ -4,7 +4,7 @@
    right: 50px;
    width: 40px;
    height: 40px;
-   z-index: 1049;
+   z-index: 1039;
 }
 
 .btn-menu-open,
@@ -92,10 +92,10 @@ img.access-icon {
 }
 
 .bs-tooltip-start .tooltip-arrow::before {
-   border-left-color: #df4758;
+   border-left-color: transparent;
 }
 .tooltip-inner {
-   background-color: #df4758;
+   background-color: transparent;
 }
 .list-menu-icon li.shake {
    animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) 1;

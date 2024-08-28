@@ -50,19 +50,19 @@ function MenuAccess() {
       const tooltips = [
          {
             id: 'tooltip1',
-            title: 'Gửi lời chúc',
+            title: '',
             htmlContent:
                '<span className="content-button tooltipBtn" style="position: relative; top: 3px"><img className="access-icon" src="https://cdn.biihappy.com/ziiweb/images/static/common/wishes.png" style="height:25px; width:auto; margin-top:4px" /></span>',
          },
          {
             id: 'tooltip2',
-            title: 'Xác nhận tham dự',
+            title: '',
             htmlContent:
                '<span className="content-button tooltipBtn" style="position: relative; top: 3px"><img className="access-icon" src="https://cdn.biihappy.com/ziiweb/images/static/common/rsvp4.png" style="height:25px; width:auto; margin-top:4px"/></span>',
          },
          {
             id: 'tooltip3',
-            title: 'Mừng cưới',
+            title: '',
             htmlContent:
                '<span className="content-button tooltipBtn" style="position: relative; top: 3px"><img className="access-icon" src="https://cdn.biihappy.com/ziiweb/images/static/common/money_bag.png" style="height:25px; width:auto; margin-top:4px"/></span>',
          },
@@ -74,7 +74,6 @@ function MenuAccess() {
                <TooltipItem
                   key={tooltip.id}
                   id={tooltip.id}
-                  title={tooltip.title}
                   show={currentTooltip === index}
                   htmlContent={tooltip.htmlContent}
                />

@@ -77,11 +77,13 @@
    }
    .btn-event {
       width: 100% !important;
+      padding: 12px 0 !important;
+      font-size: 14px;
    }
 }
 
 @media (max-width: 480px) {
    .card-item h3 {
-      font-size: 14pt;
+      font-size: 16px;
    }
 }
