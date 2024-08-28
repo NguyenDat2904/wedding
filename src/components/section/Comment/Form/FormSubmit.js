@@ -1,14 +1,48 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './FormSubmit.scss';
+import Picker from 'emoji-picker-react';
 import Button from '../../../Button/Button';
+import { Icon } from '../../../data';
 
 function FormSubmit() {
+   const [formData, setFormData] = useState({
+      name: '',
+      email: '',
+      content: '',
+   });
+   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
+
+   const handleChange = (e) => {
+      const { name, value } = e.target;
+      setFormData((prevState) => ({
+         ...prevState,
+         [name]: value,
+      }));
+   };
+
+   const onEmojiClick = (event, emojiObject) => {
+      const newText = formData.content + event.emoji;
+      setFormData((prevState) => ({
+         ...prevState,
+         content: newText,
+      }));
+   };
+
+   const toggleEmojiPicker = () => {
+      setShowEmojiPicker(!showEmojiPicker);
+   };
+
+   const handleSubmit = (e) => {
+      e.preventDefault();
+      console.log(formData);
+   };
+
    return (
       <form
          id="wish-form"
          className="form validate-rsvp-form row contact-validation-active"
          method="post"
-         noValidate="novalidate"
+         onSubmit={handleSubmit}
       >
          <div>
             <input
@@ -16,15 +50,22 @@ function FormSubmit() {
                name="name"
                placeholder="Tên của bạn*"
                className="form-control error"
-               aria-required="true"
-               aria-invalid="true"
+               value={formData.name}
+               onChange={handleChange}
             />
             <label id="name-error" className="error" htmlFor="name">
                Vui lòng nhập tên của bạn.
             </label>
          </div>
          <div>
-            <input type="email" name="email" placeholder="E-mail" className="form-control valid" />
+            <input
+               type="email"
+               name="email"
+               placeholder="E-mail"
+               className="form-control valid"
+               value={formData.email}
+               onChange={handleChange}
+            />
          </div>
          <div>
             <div className="textarea-emoji-picker">
@@ -35,55 +76,18 @@ function FormSubmit() {
                      className="form-control error"
                      name="content"
                      placeholder="Nhập lời chúc của bạn*"
-                     aria-required="true"
-                     defaultValue={''}
+                     value={formData.content}
+                     onChange={handleChange}
                   />
                   <div className="textAreaIcons">
-                     <span
-                        className="show-autocomplete tooltip-custom"
-                        title
-                     >
-                        <svg
-                           xmlns="http://www.w3.org/2000/svg"
-                           width={20}
-                           height={20}
-                           fill="currentColor"
-                           className="bi bi-lightbulb"
-                           viewBox="0 0 16 16"
-                        >
-                           <path d="M2 6a6 6 0 1 1 10.174 4.31c-.203.196-.359.4-.453.619l-.762 1.769A.5.5 0 0 1 10.5 13a.5.5 0 0 1 0 1 .5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1 0-1 .5.5 0 0 1 0-1 .5.5 0 0 1-.46-.302l-.761-1.77a2 2 0 0 0-.453-.618A5.98 5.98 0 0 1 2 6m6-5a5 5 0 0 0-3.479 8.592c.263.254.514.564.676.941L5.83 12h4.342l.632-1.467c.162-.377.413-.687.676-.941A5 5 0 0 0 8 1" />
-                        </svg>
+                     <span className="show-autocomplete tooltip-custom" title>
+                        <Icon.idea />
                      </span>
                      <span className="hide-autocomplete tooltip-custom" style={{ display: 'none' }}>
-                        <svg
-                           xmlns="http://www.w3.org/2000/svg"
-                           width={20}
-                           height={20}
-                           fill="currentColor"
-                           className="bi bi-lightbulb-off"
-                           viewBox="0 0 16 16"
-                        >
-                           <path
-                              fillRule="evenodd"
-                              d="M2.23 4.35A6 6 0 0 0 2 6c0 1.691.7 3.22 1.826 4.31.203.196.359.4.453.619l.762 1.769A.5.5 0 0 0 5.5 13a.5.5 0 0 0 0 1 .5.5 0 0 0 0 1l.224.447a1 1 0 0 0 .894.553h2.764a1 1 0 0 0 .894-.553L10.5 15a.5.5 0 0 0 0-1 .5.5 0 0 0 0-1 .5.5 0 0 0 .288-.091L9.878 12H5.83l-.632-1.467a3 3 0 0 0-.676-.941 4.98 4.98 0 0 1-1.455-4.405zm1.588-2.653.708.707a5 5 0 0 1 7.07 7.07l.707.707a6 6 0 0 0-8.484-8.484zm-2.172-.051a.5.5 0 0 1 .708 0l12 12a.5.5 0 0 1-.708.708l-12-12a.5.5 0 0 1 0-.708"
-                           />
-                        </svg>
+                        <Icon.ideaOff />
                      </span>
-                     <span
-                        className="emoji-picker-button tooltip-custom"
-                        title
-                     >
-                        <svg
-                           xmlns="http://www.w3.org/2000/svg"
-                           width={20}
-                           height={20}
-                           fill="currentColor"
-                           className="bi bi-emoji-smile"
-                           viewBox="0 0 16 16"
-                        >
-                           <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
-                           <path d="M4.285 9.567a.5.5 0 0 1 .683.183A3.5 3.5 0 0 0 8 11.5a3.5 3.5 0 0 0 3.032-1.75.5.5 0 1 1 .866.5A4.5 4.5 0 0 1 8 12.5a4.5 4.5 0 0 1-3.898-2.25.5.5 0 0 1 .183-.683M7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5m4 0c0 .828-.448 1.5-1 1.5s-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5" />
-                        </svg>
+                     <span className="emoji-picker-button tooltip-custom" title onClick={toggleEmojiPicker}>
+                        <Icon.emoji />
                      </span>
                      <div className="wishes-autocomplete-content" style={{ display: 'none' }}>
                         <input type="text" id="searchWishSuggestions" placeholder="Tìm kiếm..." />
@@ -254,18 +258,14 @@ function FormSubmit() {
                <label id="content-error" className="error" htmlFor="content">
                   Vui lòng nhập lời chúc.
                </label>
-               <div className="emoji-picker" style={{ display: 'none' }}>
-                  <emoji-picker style={{ maxWidth: '100%', maxHeight: 350 }} className="light" />
+               <div className="emoji-picker" style={{ display: showEmojiPicker ? 'block' : 'none' }}>
+                  <Picker onEmojiClick={onEmojiClick} />
                </div>
             </div>
          </div>
          <div className="center">
-            <Button title="Gửi lời chúc" width="215px" primary />
+            <Button title="Gửi lời chúc" width="215px" primary type="submit" />
          </div>
-         {/* <div className="clearfix error-handling-messages">
-            <div id="success">Thank you</div>
-            <div id="error"> Error occurred while sending email. Please try again later.</div>
-         </div> */}
       </form>
    );
 }
