@@ -85,11 +85,7 @@ function MenuAccess() {
 
    return (
       <div id="menu-access" className>
-         <div
-            onClick={() => setIsActive(true)}
-            className="btn-menu-open"
-            style={{ display: isActive === false ? 'block' : 'none' }}
-         >
+         <div onClick={() => setIsActive(true)} className={`btn-menu-open ${!isActive ? 'active' : ''}`}>
             <svg
                xmlns="http://www.w3.org/2000/svg"
                width={16}
@@ -104,11 +100,7 @@ function MenuAccess() {
                />
             </svg>
          </div>
-         <div
-            onClick={() => setIsActive(false)}
-            className="btn-menu-close"
-            style={{ display: isActive === true ? 'block' : 'none' }}
-         >
+         <div onClick={() => setIsActive(false)} className={`btn-menu-close ${isActive ? 'active' : ''}`}>
             <svg
                xmlns="http://www.w3.org/2000/svg"
                width={16}

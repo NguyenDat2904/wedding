@@ -18,7 +18,11 @@ import FallingLeaves from '../../components/FallingLeaves/FallingLeaves';
 
 function Home() {
    return (
-      <div>
+      <div
+         style={{
+            overflowX: 'hidden',
+         }}
+      >
          <Header />
          <FallingLeaves />
          <MenuAccess />

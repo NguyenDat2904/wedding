@@ -10,19 +10,34 @@
 .btn-menu-open,
 .btn-menu-close {
    cursor: pointer;
-   width: 40px;
-   height: 40px;
+   width: 0px;
+   height: 0px;
    border-radius: 50%;
-   -moz-border-radius: 50%;
-   -webkit-border-radius: 50%;
-   -ms-border-radius: 50%;
-   -o-border-radius: 50%;
    background-color: #df4758;
    transition: all 2s ease-in;
    position: relative;
    bottom: -156px;
+   transition: opacity 0.3s;
+   opacity: 0;
+   visibility: hidden;
 }
-
+.btn-menu-close:active,
+.btn-menu-open:active {
+   transform: scale(0.7);
+}
+.btn-menu-open.active,
+.btn-menu-close.active {
+   opacity: 1;
+   visibility: visible;
+   width: 40px;
+   height: 40px;
+}
+.list-menu-icon li {
+   transition: all 0.5s;
+}
+.list-menu-icon li:active {
+   transform: scale(0.7);
+}
 .btn-menu-open > svg,
 .btn-menu-close > svg {
    padding-top: 5px;
@@ -110,6 +125,6 @@ img.access-icon {
 @media (max-width: 799px) {
    #menu-access {
       bottom: 186px;
-      right: 20px;
+      right: 12px;
    }
 }

@@ -5,11 +5,12 @@
    width: 40px;
    height: 40px;
    z-index: 99999;
+   transition: all 0.5s;
 }
-.bii-prev{
+.bii-prev {
    bottom: 170px;
 }
-.bii-next{
+.bii-next {
    bottom: 70px;
 }
 
@@ -55,6 +56,9 @@
    animation: biilogo-pulse 1s infinite;
    z-index: 1;
 }
+.bii-player:active {
+   transform: scale(0.6);
+}
 
 @keyframes biilogo-pulse {
    0% {
@@ -71,6 +75,13 @@
 @media (max-width: 799px) {
    .bii-player {
       bottom: 30px;
-      left: 20px;
+      left: 12px;
+      bottom: 70px;
+   }
+   .bii-prev {
+      bottom: 120px;
+   }
+   .bii-next {
+      bottom: 20px;
    }
 }
