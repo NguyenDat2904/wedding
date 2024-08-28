@@ -22,3 +22,9 @@
    font-family: 'Marmelad', sans-serif;
    line-height: 70pt;
 }
+@media (max-width: 480px) {
+   .section-title-lg {
+      font-size: 35pt;
+      line-height: 45pt;
+   }
+}
