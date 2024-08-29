@@ -5,6 +5,7 @@ import { Container } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faHeart } from '@fortawesome/free-solid-svg-icons';
 import HeaderMobile from './HeaderMobile';
+import Logo from '../../assets/images/Page_3.png';
 
 const cx = classNames.bind(style);
 
@@ -22,13 +23,18 @@ function Header() {
                         <div className="row">
                            <div className="col-sm-12">
                               <a href="#hero" className={cx('nav-logo')}>
-                                 <h1>
+                                 <img
+                                    src={Logo}
+                                    alt=""
+                                   
+                                 />
+                                 {/* <h1>
                                     Đ
                                     <span className={cx('main-color')}>
                                        <FontAwesomeIcon icon={faHeart} />
                                     </span>
                                     T
-                                 </h1>
+                                 </h1> */}
                               </a>
                               {/* BEGIN MAIN MENU */}
                               <nav className={cx('navbar')}>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import './Wedding.scss';
@@ -7,6 +7,38 @@ import Button from '../../Button/Button';
 function Wedding() {
    AOS.init();
 
+   const calculateTimeLeft = () => {
+      const targetDate = new Date('2024-10-20T00:00:00');
+      const now = new Date();
+      const difference = targetDate - now;
+
+      let timeLeft = {};
+
+      if (difference > 0) {
+         timeLeft = {
+            days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+            hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+            minutes: Math.floor((difference / 1000 / 60) % 60),
+            seconds: Math.floor((difference / 1000) % 60),
+         };
+      }
+
+      return timeLeft;
+   };
+
+   const formatTime = (time) => {
+      return time < 10 ? `0${time}` : time;
+   };
+
+   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+
+   useEffect(() => {
+      const timer = setInterval(() => {
+         setTimeLeft(calculateTimeLeft());
+      }, 1000);
+
+      return () => clearInterval(timer);
+   }, []);
    return (
       <section
          id="invitation"
@@ -61,25 +93,22 @@ function Wedding() {
                         </div>
                         <div className="date">20 Tháng 10 2024</div>
                         <div className="count-down-clock">
-                           <div
-                              id="clock"
-                              data-date="2024-04-04"
-                              data-text-day="Ngày"
-                              data-text-hour="Giờ"
-                              data-text-minute="Phút"
-                              data-text-second="Giây"
-                           >
+                           <div id="clock">
                               <div className="box">
-                                 <div>137</div> <span>Ngày</span>
+                                 <div>{formatTime(timeLeft.days || 0)}</div>
+                                 <span>Ngày</span>
                               </div>
                               <div className="box">
-                                 <div>21</div> <span>Giờ</span>{' '}
+                                 <div>{formatTime(timeLeft.hours || 0)}</div>
+                                 <span>Giờ</span>
                               </div>
                               <div className="box">
-                                 <div>53</div> <span>Phút</span>{' '}
+                                 <div>{formatTime(timeLeft.minutes || 0)}</div>
+                                 <span>Phút</span>
                               </div>
                               <div className="box">
-                                 <div>37</div> <span>Giây</span>
+                                 <div>{formatTime(timeLeft.seconds || 0)}</div>
+                                 <span>Giây</span>
                               </div>
                            </div>
                         </div>

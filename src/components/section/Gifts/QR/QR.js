@@ -1,7 +1,7 @@
 import React from 'react';
 import './QR.scss';
 
-function QR() {
+function QR({ title, img, nameBank, accountName, accountNumber }) {
    return (
       <div className="col-sm-6 col-lg-4 donate-card">
          <div className="map-info-container">
@@ -16,22 +16,16 @@ function QR() {
                      <span className="v-lines" />
                      <span className="h-lines" />
                      <span className="v-lines" />
-                     <h4 className="fs-5">Mừng cưới đến chú rể</h4>
-                     <img
-                        className="qr-code-image m-auto mb-2"
-                        src="https://cdn.biihappy.com/ziiweb/website/61990349db8f76231c132068/49bc348db7eb284d9fc249b9d958893b.jpeg"
-                     />
+                     <h4 className="fs-5">{title}</h4>
+                     <img className="qr-code-image m-auto mb-2" src={img} />
                      <p>
-                        Ngân hàng: <strong>VPBank</strong>
+                        Ngân hàng: <strong>{nameBank}</strong>
                      </p>
                      <p>
-                        Tên tài khoản: <strong>12345678910</strong>
+                        Tên tài khoản: <strong>{accountName}</strong>
                      </p>
                      <p>
-                        Số tài khoản: <strong>Hoàng Kiến Văn</strong>
-                     </p>
-                     <p>
-                        Chi nhánh: <strong>TP.HCM</strong>
+                        Số tài khoản: <strong>{accountNumber}</strong>
                      </p>
                      <div className="info-map-divider" />
                   </div>

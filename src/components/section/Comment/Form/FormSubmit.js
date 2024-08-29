@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import './FormSubmit.scss';
 import Picker from 'emoji-picker-react';
 import Button from '../../../Button/Button';
@@ -11,6 +11,7 @@ function FormSubmit() {
       content: '',
    });
    const [showEmojiPicker, setShowEmojiPicker] = useState(false);
+   const contentRef = useRef(null);
 
    const handleChange = (e) => {
       const { name, value } = e.target;
@@ -30,6 +31,7 @@ function FormSubmit() {
 
    const toggleEmojiPicker = () => {
       setShowEmojiPicker(!showEmojiPicker);
+      if (contentRef.current) contentRef.current.blur();
    };
 
    const handleSubmit = (e) => {
@@ -78,6 +80,7 @@ function FormSubmit() {
                      placeholder="Nhập lời chúc của bạn*"
                      value={formData.content}
                      onChange={handleChange}
+                     ref={contentRef}
                   />
                   <div className="textAreaIcons">
                      <span className="show-autocomplete tooltip-custom" title>
@@ -86,7 +89,14 @@ function FormSubmit() {
                      <span className="hide-autocomplete tooltip-custom" style={{ display: 'none' }}>
                         <Icon.ideaOff />
                      </span>
-                     <span className="emoji-picker-button tooltip-custom" title onClick={toggleEmojiPicker}>
+                     <span
+                        className="emoji-picker-button tooltip-custom"
+                        title
+                        onClick={toggleEmojiPicker}
+                        style={{
+                           marginLeft: '10px',
+                        }}
+                     >
                         <Icon.emoji />
                      </span>
                      <div className="wishes-autocomplete-content" style={{ display: 'none' }}>
@@ -259,7 +269,7 @@ function FormSubmit() {
                   Vui lòng nhập lời chúc.
                </label>
                <div className="emoji-picker" style={{ display: showEmojiPicker ? 'block' : 'none' }}>
-                  <Picker onEmojiClick={onEmojiClick} />
+                  <Picker width={295} height={400} onEmojiClick={onEmojiClick} skinTonesDisabled />
                </div>
             </div>
          </div>
