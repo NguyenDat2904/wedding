@@ -30,7 +30,7 @@ function Hero() {
                      </h1>
                      <div className={cx('hero-subtitle', 'light', 'visible')}>{globalData.weddingDate}</div>
                      <div className={cx('animation-fade', 'animate-fade')} style={{ marginTop: '40px' }}>
-                        <Button white title="Gửi lời chúc" />
+                        <Button white title="Gửi lời chúc" href="#rsvp" />
                      </div>
                   </div>
                </div>

@@ -61,12 +61,12 @@
    right: auto;
    bottom: -240px;
    left: -45px;
-   -webkit-transform: rotate(180deg);
-   -moz-transform: rotate(180deg);
-   -ms-transform: rotate(180deg);
-   -o-transform: rotate(180deg);
    transform: rotate(180deg);
-   -khtml-opacity: 0.4;
-   -moz-opacity: 0.4;
    opacity: 0.4;
+}
+
+@media (max-width: 480px) {
+   .form-wrapper.neela-style {
+      border-width: 22px;
+   }
 }

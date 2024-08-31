@@ -17,6 +17,12 @@ function Comment() {
                      <FormSubmit />
                      <div className="wish-box ">
                         <Messages />
+                        <Messages />
+                        <Messages />
+                        <Messages />
+                        <Messages />
+                        <Messages />
+                        <Messages />
                      </div>
                   </div>
                </div>

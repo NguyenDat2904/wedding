@@ -36,7 +36,7 @@ function AboutUs() {
 
    AOS.init();
    return (
-      <section className={cx('couple')}>
+      <section id="couple" className={cx('couple')}>
          <div className="container">
             <div className={cx('row', 'about-elems-wrapper')}>
                <div

@@ -18,13 +18,10 @@ function HeaderMobile({ isOpen, onClose }) {
                <a href="#story">Chuyện tình yêu</a>
             </li>
             <li>
-               <a href="#bridesmaids">Phù Dâu &amp; Phù Rể</a>
-            </li>
-            <li>
                <a href="#gallery">Album Hình Cưới</a>
             </li>
             <li>
-               <a href="#events">Sự kiện cưới</a>
+               <a href="#giftregistry">Sự kiện cưới</a>
             </li>
             <li>
                <a href="#rsvp">Sổ Lưu Bút</a>

@@ -3,7 +3,7 @@ import classNames from 'classnames/bind';
 import style from './Header.module.scss';
 import { Container } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faHeart } from '@fortawesome/free-solid-svg-icons';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 import HeaderMobile from './HeaderMobile';
 import Logo from '../../assets/images/Page_3.png';
 
@@ -11,6 +11,14 @@ const cx = classNames.bind(style);
 
 function Header() {
    const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+   const menuItems = [
+      { href: '#couple', title: 'Cặp đôi' },
+      { href: '#story', title: 'Chuyện tình yêu' },
+      { href: '#gallery', title: 'Album Hình Cưới' },
+      { href: '#giftregistry', title: 'Sự kiện cưới' },
+      { href: '#rsvp', title: 'Sổ Lưu Bút' },
+      { href: '#donate', title: 'Mừng cưới' },
+   ];
 
    return (
       <div>
@@ -23,57 +31,19 @@ function Header() {
                         <div className="row">
                            <div className="col-sm-12">
                               <a href="#hero" className={cx('nav-logo')}>
-                                 <img
-                                    src={Logo}
-                                    alt=""
-                                   
-                                 />
-                                 {/* <h1>
-                                    Đ
-                                    <span className={cx('main-color')}>
-                                       <FontAwesomeIcon icon={faHeart} />
-                                    </span>
-                                    T
-                                 </h1> */}
+                                 <img src={Logo} alt="" />
                               </a>
-                              {/* BEGIN MAIN MENU */}
                               <nav className={cx('navbar')}>
                                  <ul className={cx('nav')}>
-                                    <li>
-                                       <a href="#couple" className>
-                                          Cặp đôi
-                                       </a>
-                                    </li>
-                                    <li>
-                                       <a href="#story" className>
-                                          Chuyện tình yêu
-                                       </a>
-                                    </li>
-                                    <li>
-                                       <a href="#bridesmaids" className>
-                                          Phù Dâu &amp; Phù Rể
-                                       </a>
-                                    </li>
-                                    <li>
-                                       <a href="#gallery" className>
-                                          Album Hình Cưới
-                                       </a>
-                                    </li>
-                                    <li>
-                                       <a href="#events" className>
-                                          Sự kiện cưới
-                                       </a>
-                                    </li>
-                                    <li>
-                                       <a href="#rsvp" className>
-                                          Sổ Lưu Bút
-                                       </a>
-                                    </li>
-                                    <li>
-                                       <a href="#donate" className>
-                                          Mừng cưới
-                                       </a>
-                                    </li>
+                                    {menuItems.map((item, i) => {
+                                       return (
+                                          <li key={i}>
+                                             <a href={item.href} className>
+                                                {item.title}
+                                             </a>
+                                          </li>
+                                       );
+                                    })}
                                  </ul>
                                  <button
                                     className={cx('nav-mobile-btn')}
@@ -81,9 +51,7 @@ function Header() {
                                  >
                                     <FontAwesomeIcon icon={faBars} />
                                  </button>
-                                 {/* Mobile menu button */}
                               </nav>
-                              {/* END MAIN MENU */}
                            </div>
                         </div>
                      </Container>

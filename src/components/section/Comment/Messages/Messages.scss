@@ -12,6 +12,11 @@
 
 .wish-box .wish-box-item {
    margin-bottom: 20px;
+   padding-right: 12px;
+}
+
+.wish-box::-webkit-scrollbar {
+   width: 4px; /* Độ rộng của scrollbar */
 }
 
 .wish-box strong {
